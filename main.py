@@ -17,7 +17,6 @@ async def send_info(message: types.Message):
                          "/start  - Start Bot\n"
                          "/info   - Command Panel\n"
                          "/stocks - Get a stock market portfolio\n"
-                         "/data   -  Get a stock data file\n"
                          "/PER_ESR - Get a PER_ESR boxplot\n"
                          "/PSR_PBR -  Get a PSR_PBR boxplot\n"
                          "")
