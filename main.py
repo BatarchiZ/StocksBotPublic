@@ -46,16 +46,16 @@ async def success(message: types.Message):
 
 
 
-@dp.message_handler(commands=["success"])
-async def success(message: types.Message):
-    print(message.message_id)
-    await bot.send_photo(message.from_user.id, photo=open("photo_2021-12-10_21-03-40.jpg", "rb"))
+# @dp.message_handler(commands=["success"])
+# async def success(message: types.Message):
+#     print(message.message_id)
+#     await bot.send_photo(message.from_user.id, photo=open("photo_2021-12-10_21-03-40.jpg", "rb"))
 
 @dp.message_handler(regexp="[0-9]")
 async def send_something(message: types.Message):
     import functions as fn
     data = fn.stonks(message.text)
-    await message.answer(f"{data}")
+    await message.answer(f"This is your personalised stock portfolio:\n\n{data}")
 
 @dp.message_handler(commands=["p"])
 @dp.message_handler(regexp=".")
