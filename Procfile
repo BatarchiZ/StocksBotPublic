@@ -1,1 +1,1 @@
-web: gunicorn main:app --preload --workers 1
+web: gunicorn main:executor.start_polling(dp, skip_updates=True) --preload --workers 1
