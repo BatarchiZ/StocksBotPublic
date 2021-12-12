@@ -5,7 +5,7 @@ import keyboards as kn
 from keyboards import markup1, markup2
 import functions as fn
 
-API_TOKEN = "5091609282:AAHvExe0njoB95VSp3xyBSEqqPKh64xVi3I"
+API_TOKEN = ""
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
