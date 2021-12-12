@@ -1,5 +1,7 @@
 import logging
 from aiogram import Bot, Dispatcher, executor, types
+import keyboards as kn
+
 from keyboards import markup1, markup2
 import functions as fn
 
@@ -32,16 +34,18 @@ async def send_info(message: types.Message):
     await message.answer("Choose the standard deviation from the available range", reply_markup=markup2)
 
 @dp.message_handler(commands=["PER_ESR"])
-async def success(message: types.Message):
+async def PERESR(message: types.Message):
     print(message.message_id)
     await bot.send_photo(message.from_user.id, photo=open("PER_ESR_plots.jpeg", "rb"))
 
 @dp.message_handler(commands=["PSR_PBR"])
-async def success(message: types.Message):
+async def PSRPBR(message: types.Message):
     print(message.message_id)
     await bot.send_photo(message.from_user.id, photo=open("PSR_PBR_plots.jpeg", "rb"))
 
-
+@dp.message_handler(commands=["Quit"])
+async def quit(message: types.Message):
+    await message.answer('Bye', reply_markup=kn.ReplyKeyboardRemove())
 
 
 
@@ -55,6 +59,9 @@ async def send_something(message: types.Message):
     import functions as fn
     data = fn.stonks(message.text)
     await message.answer(f"This is your personalised stock portfolio:\n\n{data}")
+
+
+
 
 @dp.message_handler(commands=["p"])
 @dp.message_handler(regexp=".")
